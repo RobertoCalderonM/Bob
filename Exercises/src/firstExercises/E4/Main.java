@@ -4,7 +4,7 @@ import java.io.*;
 
 public class Main {
 
-final static String adress="C:\\Users\\RobertoAdrianCaldero\\Desktop\\E4Data.txt";
+final static String adress="Data.txt";
 
 public static void main(String[] args) throws FileNotFoundException, IOException{
 try {	
