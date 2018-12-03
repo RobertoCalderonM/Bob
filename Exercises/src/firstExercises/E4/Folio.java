@@ -21,7 +21,7 @@ private String genString(int N) {
 	folioChar=new char[9];
 	switch (N) {
 	case 1:	
-		folioChar=genStringCase(true,9,elements);
+		folioChar=genStringCase(true,9,elements); //flag (true= ISO folio, false= not implemented)
 		break;
 		
 	case 2:
@@ -48,8 +48,12 @@ private char[] genStringCase(boolean ISO,int size,char[] elements) {
 	int ActualIndex=0,LastIndex=0;
 	System.currentTimeMillis();
 	for (int i=0;i<size;i++) {
-		if (i<3 && ISO) {
-			folioChar[i]='D';
+		if (i==0 && ISO) {
+			String iso=genISO();
+			folioChar[0]=iso.charAt(0);
+			folioChar[1]=iso.charAt(1);
+			folioChar[2]=iso.charAt(2);
+			i=2;
 		}else {
 			do {
 			ActualIndex= (int)(Math.random()*elements.length);
@@ -71,4 +75,13 @@ public void setFolio(String genFolio) {
 	this.genFolio=genFolio;
 }
 
+private String genISO() {
+	String[] ISO= {"AGU","BCN","BCS","CAM","CHP","CHH","CMX","COA","COL","DUR","GUA","GRO","HID","JAL","MEX"
+			,"MIC","MOR","NAY","NLE","OAX","PUE","QUE","ROO","SLP","SIN","SON","TAB","TAM","TLA","VER","YUC","ZAC"};
+	System.currentTimeMillis();
+	int value=(int) (Math.random()*ISO.length);
+	String genIso=ISO[value];
+	return genIso;
+	}
 }
+
