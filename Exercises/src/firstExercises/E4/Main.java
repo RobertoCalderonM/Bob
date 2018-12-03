@@ -15,12 +15,15 @@ try {
 	}
 	boolean flag=false;
 	Folio folio;
+	long startTime=System.nanoTime();
 	do {
 	folio=new Folio();
 	flag=Main.validateFolio(folio,file);
 	}while(!flag);
+	long endTime=System.nanoTime()-startTime;
 	Main.writeFolio(folio,file);
 	System.out.println("New folio generated:"+folio.getFolio());
+	System.out.println("Generation time:"+(double)(endTime/1_000_000_000.0)+"s");
 	System.out.println("Saved in -> "+adress);
 }catch(IOException A){
 	System.out.println("Path not found-> "+adress);
