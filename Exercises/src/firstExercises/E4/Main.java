@@ -17,7 +17,7 @@ try {
 	Folio folio;
 	long startTime=System.nanoTime();
 	do {
-	folio=new Folio();
+	folio=new Folio(true);
 	flag=Main.validateFolio(folio,file);
 	}while(!flag);
 	long endTime=System.nanoTime()-startTime;

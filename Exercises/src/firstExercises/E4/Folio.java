@@ -5,23 +5,23 @@ public class Folio {
 
 private String genFolio;
 
-public Folio() {
+public Folio(boolean mode) {
 this.genFolio="";
 	for (int i=1;i<=3;i++) {
-		this.genFolio+=genString(i);
+		this.genFolio+=genString(i,mode);
 		if (i<3) {
 		this.genFolio+="-";}
 	}
 }
 
-private String genString(int N) {
+private String genString(int N, boolean mode) {
 	char[] elements= {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 	char[] folioChar;
 	String folioString;
 	folioChar=new char[9];
 	switch (N) {
 	case 1:	
-		folioChar=genStringCase(true,9,elements); //flag (true= ISO folio, false= not implemented)
+		folioChar=genStringCase(mode,9,elements); //mode (true= ISO folio, false= not implemented)
 		break;
 		
 	case 2:
